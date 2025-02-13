@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>ewm-main</artifactId>
-
+    <packaging>pom</packaging>
     <properties>
         <maven.compiler.source>22</maven.compiler.source>
         <maven.compiler.target>22</maven.compiler.target>
