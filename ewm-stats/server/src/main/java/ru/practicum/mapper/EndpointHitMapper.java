@@ -1,6 +1,5 @@
 package ru.practicum.mapper;
 
-
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import ru.practicum.dto.EndpointHitDto;
@@ -16,7 +15,7 @@ public class EndpointHitMapper {
         entity.setIp(dto.getIp());
         entity.setTimestamp(dto.getTimestamp());
         return entity;
-    };
+    }
 
     public static EndpointHitDto toDto(EndpointHit entity) {
         EndpointHitDto dto = new EndpointHitDto();
@@ -25,5 +24,5 @@ public class EndpointHitMapper {
         dto.setIp(entity.getIp());
         dto.setTimestamp(entity.getTimestamp());
         return dto;
-    };
+    }
 }
