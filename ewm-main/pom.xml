@@ -9,13 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>ewm-stats</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>dto</module>
-        <module>client</module>
-        <module>server</module>
-    </modules>
+    <artifactId>ewm-main</artifactId>
 
     <properties>
         <maven.compiler.source>22</maven.compiler.source>
