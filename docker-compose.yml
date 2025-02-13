@@ -1,14 +1,57 @@
 services:
   stats-server:
+    build:
+      context: ./ewm-stats/server
+    image: stats-image
+    container_name: stats-container
     ports:
       - "9090:9090"
+    depends_on:
+      - stats-db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://stats-db:5432/shareit
+      - SPRING_DATASOURCE_POSTGRES_USER=postgres
+      - SPRING_DATASOURCE_POSTGRES_PASSWORD=12345
 
   stats-db:
     image: postgres:16.1
+    container_name: postgres
+    ports:
+      - "6541:5432"
+    volumes:
+      - ./ewm-stats/src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    environment:
+      - POSTGRES_DB=shareit
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+      - TZ=Europe/Samara
+    healthcheck:
+      test: pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER
+      timeout: 5s
+      interval: 5s
+      retries: 10
 
   ewm-service:
+    build:
+      context: ewm-service
+    image: ewm-image
+    container_name: ewm-container
     ports:
       - "8080:8080"
+    depends_on:
+      - ewm-db
+      - stats-server
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://ewm-db:5432/ewm_db
+      - SPRING_DATASOURCE_POSTGRES_USER=postgres
+      - SPRING_DATASOURCE_POSTGRES_PASSWORD=12345
 
   ewm-db:
     image: postgres:16.1
+    container_name: ewm-db
+    ports:
+      - "6542:5432"
+    environment:
+      - POSTGRES_DB=ewm_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345

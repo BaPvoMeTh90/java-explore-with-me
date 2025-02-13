@@ -1,15 +1,12 @@
-package ru.practicum.model;
-
+package ru.practicum.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Builder
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class ViewStats {
     private String app;
     private String uri;
