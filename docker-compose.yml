@@ -33,7 +33,7 @@ services:
 
   ewm-service:
     build:
-      context: ewm-service
+      context: ./ewm-main
     image: ewm-image
     container_name: ewm-container
     ports:
