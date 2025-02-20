@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import ru.practicum.events.model.Event;
 
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -18,16 +19,13 @@ public class Compilation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "compilation_id")
     private Long id;
-
     @Column(name = "pinned")
     private Boolean pinned;
-
     @Column(name = "title")
     private String title;
-
     @ManyToMany
     @JoinTable(name = "compilation_events",
             joinColumns = @JoinColumn(name = "compilation_id"),
             inverseJoinColumns = @JoinColumn(name = "event_id"))
-    private Set<Event> events;
+    private List<Event> events;
 }

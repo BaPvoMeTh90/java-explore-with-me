@@ -37,7 +37,7 @@ public class AdminCategoryController {
 
     @DeleteMapping("/{categoryId}")
     public ResponseEntity<Void> deleteCategory(@PathVariable @Positive Long categoryId) {
-        log.info("Удаление категории с идентификатором: " + categoryId);
+        log.info("Удаление категории с идентификатором: {}", categoryId);
         categoryService.deleteCategory(categoryId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

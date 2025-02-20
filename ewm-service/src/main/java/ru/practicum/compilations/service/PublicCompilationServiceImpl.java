@@ -37,9 +37,9 @@ public class PublicCompilationServiceImpl extends CompilationBase implements Pub
         } else {
             compilations = compilationRepository.findAllByPinned(pined, pageRequest);
         }
-        Set<Event> allEvents = compilations.stream()
+        List<Event> allEvents = compilations.stream()
                 .flatMap(compilation -> compilation.getEvents().stream())
-                .collect(Collectors.toSet());
+                .collect(Collectors.toList());
         Map<Long, Long> views = getViewsForEvents(allEvents);
         Map<Long, Long> confirmed = getConfirmedRequests(allEvents);
         List<CompilationDto> compilationDtos;
@@ -51,7 +51,7 @@ public class PublicCompilationServiceImpl extends CompilationBase implements Pub
     public CompilationDto getCompilationById(Long compilationId) {
         Compilation compilation = compilationRepository.findById(compilationId).orElseThrow(()
                 -> new NotFoundException("Подборка с id: " + compilationId + " не найдена или недоступна"));
-        Set<Event> allEvents = compilation.getEvents();
+        List<Event> allEvents = compilation.getEvents();
         Map<Long, Long> views = getViewsForEvents(allEvents);
         Map<Long, Long> confirmed = getConfirmedRequests(allEvents);
         List<EventShortDto> eventShortDtos = allEvents.stream()

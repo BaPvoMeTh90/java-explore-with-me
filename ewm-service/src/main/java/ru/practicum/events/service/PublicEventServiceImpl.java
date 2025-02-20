@@ -109,9 +109,9 @@ public class PublicEventServiceImpl extends EventBase implements PublicEventServ
     }
 
     private void sendEndpointHit(HttpServletRequest request) {
-        String app = "ewm-main-service";
+
         statClient.addHit(EndpointHitDto.builder()
-                .app(app)
+                .app("${app}")
                 .uri(request.getRequestURI())
                 .ip(request.getRemoteAddr())
                 .timestamp(LocalDateTime.now())

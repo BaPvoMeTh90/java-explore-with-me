@@ -15,10 +15,8 @@ import ru.practicum.events.repository.EventRepository;
 import ru.practicum.exception.NotFoundException;
 import ru.practicum.requests.repository.RequestRepository;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -37,9 +35,9 @@ public class AdminCompilationServiceImpl extends CompilationBase implements Admi
 
     @Override
     public CompilationDto addCompilation(NewCompilationDto newCompilationDto) {
-        HashSet<Event> events = new HashSet<>();
+        List<Event> events = List.of();
         if (newCompilationDto.getEvents() != null) {
-            events = new HashSet<>(eventRepository.findAllById(newCompilationDto.getEvents()));
+            events = eventRepository.findAllById(newCompilationDto.getEvents());
         }
         Compilation compilation = CompilationMapper.compilationDtoToCompilation(newCompilationDto, events);
         List<EventShortDto> eventShortDtos = createEventShortDto(compilation);
@@ -61,10 +59,8 @@ public class AdminCompilationServiceImpl extends CompilationBase implements Admi
         if (ids == null) {
             throw new NotFoundException("События не найдены");
         }
-        HashSet<Event> events = new HashSet<>(eventRepository.findAllById(ids));
-        if (compilationUpdateDto.getEvents() != null) {
+        List<Event> events = eventRepository.findAllById(ids);
             compilation.setEvents(events);
-        }
         if (compilationUpdateDto.getPinned() != null) {
             compilation.setPinned(compilationUpdateDto.getPinned());
         }
@@ -76,7 +72,7 @@ public class AdminCompilationServiceImpl extends CompilationBase implements Admi
     }
 
     private List<EventShortDto> createEventShortDto(Compilation compilation) {
-        Set<Event> allEvents = compilation.getEvents();
+        List<Event> allEvents = compilation.getEvents();
         Map<Long, Long> views = getViewsForEvents(allEvents);
         Map<Long, Long> confirmed = getConfirmedRequests(allEvents);
         return allEvents.stream()

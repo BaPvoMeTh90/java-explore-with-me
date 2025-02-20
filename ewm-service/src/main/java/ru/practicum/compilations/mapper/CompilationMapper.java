@@ -24,7 +24,7 @@ public class CompilationMapper {
                 compilation.getTitle());
     }
 
-    public static Compilation compilationDtoToCompilation(NewCompilationDto dto, HashSet<Event> events) {
+    public static Compilation compilationDtoToCompilation(NewCompilationDto dto, List<Event> events) {
         return new Compilation(
                 null,
                 dto.getPinned(),
