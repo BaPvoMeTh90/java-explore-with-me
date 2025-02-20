@@ -5,11 +5,9 @@ import lombok.*;
 import ru.practicum.events.model.Event;
 
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
-@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
