@@ -3,7 +3,7 @@ package ru.practicum.requests.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.practicum.events.model.Event;
-import ru.practicum.events.model.State;
+import ru.practicum.base.model.State;
 import ru.practicum.events.repository.EventRepository;
 import ru.practicum.exception.NotFoundException;
 import ru.practicum.exception.ViolationException;

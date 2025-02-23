@@ -2,7 +2,7 @@ package ru.practicum.events.dto;
 
 import lombok.*;
 import ru.practicum.category.dto.CategoryDto;
-import ru.practicum.events.model.State;
+import ru.practicum.base.model.State;
 import ru.practicum.location.dto.LocationDto;
 import ru.practicum.user.dto.UserShortDto;
 

@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static ru.practicum.events.model.State.PUBLISHED;
+import static ru.practicum.base.model.State.PUBLISHED;
 
 @Service
 public class PublicEventServiceImpl extends EventBase implements PublicEventService {

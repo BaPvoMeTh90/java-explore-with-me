@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static ru.practicum.events.model.State.*;
+import static ru.practicum.base.model.State.*;
 
 @Service
 public class AdminEventServiceImpl extends EventBase implements AdminEventService {
