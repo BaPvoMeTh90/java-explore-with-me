@@ -19,8 +19,6 @@ import ru.practicum.exception.ViolationException;
 
 import java.time.LocalDateTime;
 
-import static ru.practicum.base.model.State.*;
-
 @Service
 @RequiredArgsConstructor
 public class PrivateCommentServiceImpl implements PrivateCommentService{
@@ -36,7 +34,7 @@ public class PrivateCommentServiceImpl implements PrivateCommentService{
         if (!event.getState().equals(State.PUBLISHED)) {
             throw new NotFoundException("Событие с id " + eventId + " не опубликовано");
         }
-        Comment comment = commentRepository.save(CommentMapper.CommentInputDtoToComment(commentInputDto, author, event));
+        Comment comment = commentRepository.save(CommentMapper.commentInputDtoToComment(commentInputDto, author, event));
         return CommentMapper.commentToUserCommentOutputDto(comment, UserMapper.userToUserShortDto(author));
     }
 

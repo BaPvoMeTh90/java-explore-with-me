@@ -28,7 +28,7 @@ public class CommentMapper {
         );
     }
 
-    public static Comment CommentInputDtoToComment(CommentInputDto comment, User user, Event event) {
+    public static Comment commentInputDtoToComment(CommentInputDto comment, User user, Event event) {
         return new Comment(
                 0L,
                 comment.getText(),

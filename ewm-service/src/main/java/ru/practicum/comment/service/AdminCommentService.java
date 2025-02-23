@@ -1,6 +1,5 @@
 package ru.practicum.comment.service;
 
-import jakarta.validation.constraints.Positive;
 import org.springframework.data.domain.PageRequest;
 import ru.practicum.comment.dto.AdminCommentOutputDto;
 import ru.practicum.comment.dto.AdminStatusUpdateCommentInputDto;
