@@ -12,8 +12,8 @@
 
 	<name>Explore With Me</name>
 	<modules>
-		<module>stat</module>
-		<module>service</module>
+		<module>ewm-stats</module>
+		<module>ewm-service</module>
 	</modules>
 
 	<groupId>ru.practicum</groupId>
@@ -26,9 +26,10 @@
 		<maven.compiler.source>21</maven.compiler.source>
 		<maven.compiler.target>21</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<mapstruct.version>1.5.4.Final</mapstruct.version>
-		<lombok.mapstruct.binding.version>0.2.0</lombok.mapstruct.binding.version>
+		<mapstruct.version>1.5.5.Final</mapstruct.version>
+		<httpclient.version>4.5.13</httpclient.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -55,11 +56,6 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.mapstruct</groupId>
-			<artifactId>mapstruct</artifactId>
-			<version>1.5.5.Final</version>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
@@ -67,7 +63,40 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents.client5</groupId>
+			<artifactId>httpclient5</artifactId>
+			<version>5.3.1</version>
+		</dependency>
+
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<dependency>
+				<groupId>org.mapstruct</groupId>
+				<artifactId>mapstruct</artifactId>
+				<version>${mapstruct.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mapstruct</groupId>
+				<artifactId>mapstruct-processor</artifactId>
+				<version>${mapstruct.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>${httpclient.version}</version>
+			</dependency>
+
+
+		</dependencies>
+
+
+	</dependencyManagement>
 
 	<build>
 		<pluginManagement>
