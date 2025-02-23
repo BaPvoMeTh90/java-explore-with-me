@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
-public class PrivateCommentServiceImpl implements PrivateCommentService{
+public class PrivateCommentServiceImpl implements PrivateCommentService {
     private final CommentRepository commentRepository;
     private final EventRepository eventRepository;
     private final UserRepository userRepository;
