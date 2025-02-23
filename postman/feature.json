@@ -683,7 +683,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/comments/events/1",
+					"raw": "http://localhost:8080/comments/events/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
