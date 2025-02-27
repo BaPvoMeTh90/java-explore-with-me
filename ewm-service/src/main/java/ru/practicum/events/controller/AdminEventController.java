@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.practicum.events.dto.EventDto;
 import ru.practicum.events.dto.EventUpdateAdmin;
 import ru.practicum.events.model.AdminEventParams;
-import ru.practicum.events.model.State;
+import ru.practicum.base.model.State;
 import ru.practicum.events.service.AdminEventService;
 import ru.practicum.exception.ValidationException;
 

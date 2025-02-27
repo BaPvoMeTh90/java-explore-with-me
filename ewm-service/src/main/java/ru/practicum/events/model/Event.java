@@ -2,6 +2,7 @@ package ru.practicum.events.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import ru.practicum.base.model.State;
 import ru.practicum.category.model.Category;
 import ru.practicum.location.model.Location;
 import ru.practicum.user.model.User;

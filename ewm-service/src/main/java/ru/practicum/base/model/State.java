@@ -1,4 +1,4 @@
-package ru.practicum.events.model;
+package ru.practicum.base.model;
 
 public enum State {
     PENDING,
